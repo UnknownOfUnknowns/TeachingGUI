@@ -1,5 +1,7 @@
 package bank;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -11,7 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class Customer extends GridPane {
-    Label name;
+    public Label name;
     Label balance;
     TransferWidget transferWidget;
 
@@ -23,7 +25,11 @@ public class Customer extends GridPane {
         add(this.name, 0,0);
         add(this.balance, 0,1);
         add(transferWidget, 0,2);
-
-
+        transferWidget.getConfirm().setOnAction(this::transferApproved);
+    }
+    public void transferApproved(ActionEvent e){
+        EventCluster cluster = EventCluster.getInstance();
+        cluster.transferApproved(name.getText(), transferWidget.getReceiver().getText(), Integer.parseInt(transferWidget.getAmmount().getText()));
+        balance.setText(String.valueOf(cluster.getBalance(name.getText())));
     }
 }

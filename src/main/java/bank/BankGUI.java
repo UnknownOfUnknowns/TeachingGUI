@@ -1,6 +1,7 @@
 package bank;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
@@ -18,7 +19,6 @@ public class BankGUI extends Application {
         customer2 = new Customer("Billy", "2");
         FlowPane root = new FlowPane(customer1, customer2);
         Scene scene = new Scene(root, 500, 500);
-
         stage.setTitle("Bank");
         stage.setScene(scene);
         stage.show();

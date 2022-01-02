@@ -1,5 +1,6 @@
 package bank;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,5 +24,17 @@ public class TransferWidget extends GridPane {
         add(receiverName,2,0);
         add(receiver,3,0);
         add(confirm,4,0);
+    }
+
+    public Button getConfirm() {
+        return confirm;
+    }
+
+    public TextField getAmmount() {
+        return ammount;
+    }
+
+    public TextField getReceiver() {
+        return receiver;
     }
 }
